@@ -7,5 +7,6 @@ describe 'A user visits the commits index' do
     visit root_path
 
     expect(page).to have_content(commit.message)
+    expect(page).to have_content("Git Tracker")
   end
 end
