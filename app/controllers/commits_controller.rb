@@ -9,7 +9,7 @@ class CommitsController < ApplicationController
     json = params.to_json
     data_json = JSON.parse(json)
 
-    @commit = Commit.new(sha: data_json["payload"]["commits"][]["id"], message: data_json["payload"]["commits"][]["message"], username: data_json["payload"]["commits"][]["committer"]["username"], timestamp: data_json["payload"]["commits"][]["timestamp"])
+    @commit = Commit.new(sha: data_json["payload"]["commits"]["id"], message: data_json["payload"]["commits"]["message"], username: data_json["payload"]["commits"]["committer"]["username"], timestamp: data_json["payload"]["commits"]["timestamp"])
     if @commit.save
       render status: 200
     else
