@@ -11,9 +11,9 @@ class CommitsController < ApplicationController
 
     @commit = Commit.new(sha: data_json["payload"]["commits"][]["id"], message: data_json["payload"]["commits"][]["message"], username: data_json["payload"]["commits"][]["committer"]["username"], timestamp: data_json["payload"]["commits"][]["timestamp"])
     if @commit.save
-      render status: 200
+      render nothing: true, status: 200
     else
-      render status: 500
+      render nothing: true, status: 500
     end
   end
 
