@@ -4,6 +4,6 @@ class Commit < ApplicationRecord
   end
 
   def self.reverse
-    order(created_at: :desc)
+    order(created_at: :desc).limit(10)
   end
 end
