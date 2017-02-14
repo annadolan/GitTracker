@@ -1,5 +1,6 @@
 <h1>Git Tracker</h1>
 <h3>Commits Today: <%= Commit.today %></h3>
+<h3>Time since last commit: <%= time_ago_in_words(Commit.last_commit) %>
 <% @commits.each do |commit| %>
   <p><%= commit.username %> <%= commit.message %> <%= commit.timestamp %> <%= commit.short_sha %><p>
 <% end %>
