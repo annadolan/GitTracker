@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'POST /commits' do
   it "Creates a new commit" do
     headers = {"CONTENT-TYPE" => 'application/json'}
-    params = '{
+    params = '{"payload": {
   "ref": "refs/heads/master",
   "before": "a5e1370476c1d5ac8f4b26170e17acdf9894be83",
   "after": "d6f9bbc2ee5e03a209ff0bf9cd40fab59c1b617f",
@@ -166,6 +166,7 @@ describe 'POST /commits' do
     "type": "User",
     "site_admin": false
   }
+}
 }'
     post '/commits', headers: headers, params: params
 
