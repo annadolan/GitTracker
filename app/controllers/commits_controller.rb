@@ -5,8 +5,8 @@ class CommitsController < ApplicationController
   end
 
   def create
-    data = JSON.parse request.body.read
-    data_json = data["payload"]
+    data_json = JSON.parse(params["payload"])
+
 
 
     @commit = Commit.new(sha: data_json["commits"][0]["id"], message: data_json["commits"][0]["message"], username: data_json["commits"][0]["committer"]["username"], timestamp: data_json["commits"][0]["timestamp"])
