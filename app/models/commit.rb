@@ -6,4 +6,8 @@ class Commit < ApplicationRecord
   def self.reverse
     order(created_at: :desc).limit(10)
   end
+
+  def self.today
+    where('created_at >= ?', Time.zone.now.beginning_of_day).count
+  end
 end
