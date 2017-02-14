@@ -6,6 +6,7 @@ class CommitsController < ApplicationController
 
   def create
     # data_json = JSON.parse request.body.read
+    warn params.inspect
     payload = params[:payload].to_json
     data_json = JSON.parse(payload)
 
